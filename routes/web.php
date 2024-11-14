@@ -35,7 +35,7 @@ Route::get('/products', ProductPage::class);
 
 Route::get('/cart', CartPage::class);
 
-Route::get('/products/{product}', ProductDetailPage::class);
+Route::get('/products/{slug}', ProductDetailPage::class);
 
 Route::get('/checkout', CheckoutPage::class);
 
