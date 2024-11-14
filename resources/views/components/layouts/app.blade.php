@@ -7,6 +7,7 @@
 
         <title>{{ $title ?? 'Buy Or Die' }}</title>
         @vite('resources/css/app.css')
+        @vite('resources/js/app.js')
         @livewireStyles
 
 
@@ -16,10 +17,8 @@
         <main>
         {{ $slot }}
         </main>
+
         @livewire('partials.footer')
-
-
-
         @livewireScripts
 
     </body>
