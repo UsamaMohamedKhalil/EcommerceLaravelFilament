@@ -82,16 +82,15 @@ class CartManagement {
     //remove item from cart
     static public function removeCartItem($product_id) {
         $cart_items = self::getCartItemsFromCookie();
-        $new_cart_items = [];
     
-        foreach ($cart_items as $item) {
-            if ($item['product_id'] != $product_id) {
-                $new_cart_items[] = $item;
+        foreach ($cart_items as $key => $item) {
+            if ($item['product_id'] == $product_id) {
+                unset($cart_items[$key]);
             }
         }
     
-        self::addCartItemsToCookie($new_cart_items);
-        return count($new_cart_items);
+        self::addCartItemsToCookie($cart_items);
+        return $cart_items;
     }
 
     //add cart items to cookie
@@ -141,7 +140,7 @@ class CartManagement {
         return $cart_items;
     }
     //calculate grand total
-    static public function calculateGrandTotal($items){
-        return array_sum(array_column($items , 'total_amount'));
+    static public function calculateGrandTotal($items) {
+        return array_sum(array_column($items, 'total_amount'));
     }
 }
