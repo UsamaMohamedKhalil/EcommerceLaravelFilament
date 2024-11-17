@@ -37,7 +37,7 @@ Route::get('/products/{slug}', ProductDetailPage::class);
 //middleware for guest user
 Route::middleware('guest')->group(function(){
     //AUTH Routes
-    Route::get('/login', Login::class);
+    Route::get('/login', Login::class)->name('login');
     Route::get('/register', Register::class);
     Route::get('/forgot', ForgotPassword::class);
     Route::get('/reset', ResetPassword::class);
